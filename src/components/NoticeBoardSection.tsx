@@ -1,7 +1,6 @@
-import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, Eye, ArrowRight } from "lucide-react";
+import { Calendar, Eye, ArrowRight, Sparkles } from "lucide-react";
 
 const notices = [
   {
@@ -44,30 +43,37 @@ const notices = [
 
 const NoticeBoardSection = () => {
   return (
-    <section className="py-20 gradient-hero">
+    <section className="py-24 relative gradient-mesh">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-12 space-y-4 animate-fade-in">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
-            Latest Updates
+        <div className="text-center mb-16 space-y-6 animate-fade-in">
+          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full glass-card">
+            <Sparkles className="h-5 w-5 text-primary animate-pulse" />
+            <span className="text-sm font-semibold text-foreground">Latest Updates</span>
           </div>
-          <h2 className="text-4xl sm:text-5xl font-bold text-foreground">Notice Board</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="text-5xl sm:text-6xl font-black text-foreground">
+            Notice <span className="gradient-primary bg-clip-text text-transparent">Board</span>
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Stay informed with the latest announcements, deadlines, and important information related to scholarships and admissions.
           </p>
         </div>
 
         {/* Notices Grid */}
-        <div className="grid md:grid-cols-2 gap-6 mb-8">
+        <div className="grid md:grid-cols-2 gap-6 mb-12">
           {notices.map((notice, index) => (
-            <Card
+            <div
               key={notice.id}
-              className="gradient-card p-6 hover:shadow-xl hover-lift transition-smooth group cursor-pointer animate-fade-in-up"
+              className="glass-card rounded-2xl p-6 hover-lift transition-spring group cursor-pointer animate-fade-in-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="space-y-4">
                 <div className="flex items-start justify-between gap-4">
-                  <Badge variant={notice.badgeVariant} className="text-xs animate-bounce-in" style={{ animationDelay: `${index * 0.1 + 0.2}s` }}>
+                  <Badge 
+                    variant={notice.badgeVariant} 
+                    className="text-xs font-bold animate-bounce-in" 
+                    style={{ animationDelay: `${index * 0.1 + 0.2}s` }}
+                  >
                     {notice.badge}
                   </Badge>
                   <div className="flex items-center gap-4 text-xs text-muted-foreground">
@@ -81,26 +87,33 @@ const NoticeBoardSection = () => {
                     </span>
                   </div>
                 </div>
-                <div className="space-y-2">
+                
+                <div className="space-y-3">
                   <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-smooth line-clamp-2">
                     {notice.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground line-clamp-2">{notice.description}</p>
+                  <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">
+                    {notice.description}
+                  </p>
                 </div>
-                <Button variant="ghost" className="group/btn -ml-3">
+                
+                <Button variant="ghost" className="group/btn -ml-3 text-primary hover:text-primary">
                   Read More
                   <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
                 </Button>
               </div>
-            </Card>
+            </div>
           ))}
         </div>
 
         {/* View All Button */}
         <div className="text-center">
-          <Button variant="hero" size="lg" className="group">
-            View All Notices
-            <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+          <Button size="lg" className="h-14 px-8 gradient-primary shadow-primary hover:shadow-glow transition-all group relative overflow-hidden">
+            <span className="relative z-10 flex items-center gap-2">
+              View All Notices
+              <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </span>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></div>
           </Button>
         </div>
       </div>

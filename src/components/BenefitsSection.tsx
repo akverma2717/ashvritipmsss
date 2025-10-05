@@ -31,12 +31,13 @@ const BenefitsSection = () => {
               {benefits.map((benefit, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-4 p-4 rounded-lg bg-card hover:bg-secondary/50 transition-smooth group"
+                  className="flex items-center gap-4 p-4 rounded-lg bg-card hover:bg-secondary/50 hover-lift transition-smooth group animate-slide-in-left"
+                  style={{ animationDelay: `${index * 0.08}s` }}
                 >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-success/10 group-hover:bg-success/20 transition-smooth">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-success/10 group-hover:bg-success/20 group-hover:scale-110 transition-smooth">
                     <Check className="h-5 w-5 text-success" />
                   </div>
-                  <span className="text-base font-medium text-foreground">{benefit}</span>
+                  <span className="text-base font-medium text-foreground group-hover:text-success transition-smooth">{benefit}</span>
                 </div>
               ))}
             </div>
@@ -48,11 +49,11 @@ const BenefitsSection = () => {
           </div>
 
           {/* Right - Application Deadline Card */}
-          <div className="lg:pl-12">
-            <Card className="gradient-card p-8 border-2 border-primary/20 shadow-xl">
+          <div className="lg:pl-12 animate-slide-in-right">
+            <Card className="gradient-card p-8 border-2 border-primary/20 shadow-xl hover-lift transition-smooth">
               <div className="space-y-6">
-                <div className="flex items-center gap-4">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl gradient-primary shadow-primary">
+                <div className="flex items-center gap-4 animate-scale-in">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl gradient-primary shadow-primary animate-pulse">
                     <Calendar className="h-8 w-8 text-primary-foreground" />
                   </div>
                   <div>

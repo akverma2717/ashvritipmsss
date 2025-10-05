@@ -54,7 +54,8 @@ const TransformSection = () => {
           {features.map((feature, index) => (
             <Card
               key={index}
-              className="gradient-card p-6 hover:shadow-xl transition-smooth group cursor-pointer"
+              className="gradient-card p-6 hover:shadow-xl hover-lift transition-smooth group cursor-pointer animate-scale-in"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="space-y-4">
                 <div
@@ -64,15 +65,15 @@ const TransformSection = () => {
                       : feature.color === "accent"
                       ? "gradient-accent"
                       : "bg-success"
-                  } shadow-${feature.color} group-hover:scale-110 transition-bounce`}
+                  } shadow-${feature.color} group-hover:scale-125 group-hover:rotate-12 transition-bounce`}
                 >
                   <feature.icon className="h-7 w-7 text-white" />
                 </div>
                 <div className="space-y-2">
-                  <h3 className="text-xl font-bold text-foreground">{feature.title}</h3>
+                  <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-smooth">{feature.title}</h3>
                   <p className="text-sm text-muted-foreground">{feature.description}</p>
                   <div className="pt-2">
-                    <span className="text-2xl font-bold text-primary">{feature.stats}</span>
+                    <span className="text-2xl font-bold text-primary group-hover:scale-110 inline-block transition-smooth">{feature.stats}</span>
                   </div>
                 </div>
               </div>

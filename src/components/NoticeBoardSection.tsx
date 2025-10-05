@@ -62,11 +62,12 @@ const NoticeBoardSection = () => {
           {notices.map((notice, index) => (
             <Card
               key={notice.id}
-              className="gradient-card p-6 hover:shadow-xl transition-smooth group cursor-pointer"
+              className="gradient-card p-6 hover:shadow-xl hover-lift transition-smooth group cursor-pointer animate-fade-in-up"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="space-y-4">
                 <div className="flex items-start justify-between gap-4">
-                  <Badge variant={notice.badgeVariant} className="text-xs">
+                  <Badge variant={notice.badgeVariant} className="text-xs animate-bounce-in" style={{ animationDelay: `${index * 0.1 + 0.2}s` }}>
                     {notice.badge}
                   </Badge>
                   <div className="flex items-center gap-4 text-xs text-muted-foreground">

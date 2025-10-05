@@ -4,17 +4,24 @@ import { ArrowRight, Bell, TrendingUp } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section className="gradient-hero py-16 sm:py-24 animate-fade-in">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative gradient-hero py-16 sm:py-24 overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 right-20 h-96 w-96 rounded-full bg-primary/10 blur-3xl animate-float"></div>
+        <div className="absolute bottom-20 left-20 h-96 w-96 rounded-full bg-accent/10 blur-3xl animate-float" style={{ animationDelay: '3s' }}></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-primary/5 blur-3xl animate-pulse"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <div className="space-y-8">
+          <div className="space-y-8 animate-slide-in-left">
             <div className="space-y-4">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
-                <Bell className="h-4 w-4" />
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium animate-bounce-in">
+                <Bell className="h-4 w-4 animate-pulse" />
                 Application Open for Academic Year 2025-26
               </div>
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight">
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in-up">
                 Smarter Education
                 <br />
                 <span className="gradient-primary bg-clip-text text-transparent">
@@ -27,12 +34,12 @@ const HeroSection = () => {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap items-center gap-4">
-              <Button variant="hero" size="lg" className="group">
+            <div className="flex flex-wrap items-center gap-4 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+              <Button variant="hero" size="lg" className="group shadow-primary hover:shadow-xl transition-smooth">
                 Register Now
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="outline" size="lg" className="group">
+              <Button variant="outline" size="lg" className="group hover-lift">
                 Contact Us
               </Button>
             </div>
@@ -59,11 +66,11 @@ const HeroSection = () => {
           </div>
 
           {/* Right Content - Scholarship Card */}
-          <div className="relative">
-            <Card className="gradient-primary p-8 text-primary-foreground shadow-xl animate-float">
+          <div className="relative animate-slide-in-right">
+            <Card className="gradient-primary p-8 text-primary-foreground shadow-xl animate-float hover-lift transition-smooth">
               <div className="space-y-6">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-white/20 backdrop-blur">
+                <div className="flex items-center gap-3 animate-scale-in">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-white/20 backdrop-blur group hover:scale-110 transition-smooth">
                     <TrendingUp className="h-6 w-6" />
                   </div>
                   <div>
@@ -90,9 +97,9 @@ const HeroSection = () => {
                   </div>
                 </div>
 
-                <Button variant="accent" size="lg" className="w-full">
+                <Button variant="accent" size="lg" className="w-full shadow-accent hover:shadow-xl transition-smooth group">
                   Apply Now
-                  <ArrowRight className="h-5 w-5" />
+                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </div>
             </Card>

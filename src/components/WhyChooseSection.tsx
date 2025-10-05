@@ -44,10 +44,11 @@ const WhyChooseSection = () => {
           {features.map((feature, index) => (
             <Card
               key={index}
-              className="gradient-card p-8 hover:shadow-xl transition-smooth group cursor-pointer border-2 border-transparent hover:border-primary/20"
+              className="gradient-card p-8 hover:shadow-xl hover-lift transition-smooth group cursor-pointer border-2 border-transparent hover:border-primary/20 animate-fade-in-up"
+              style={{ animationDelay: `${index * 0.15}s` }}
             >
               <div className="space-y-6">
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl gradient-primary shadow-primary group-hover:scale-110 transition-bounce">
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl gradient-primary shadow-primary group-hover:scale-125 group-hover:rotate-6 transition-bounce">
                   <feature.icon className="h-8 w-8 text-primary-foreground" />
                 </div>
                 <div className="space-y-3">
@@ -57,7 +58,7 @@ const WhyChooseSection = () => {
                   <p className="text-muted-foreground leading-relaxed">
                     {feature.description}
                   </p>
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent text-sm font-medium">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent text-sm font-medium group-hover:bg-accent/20 transition-smooth">
                     {feature.stats}
                   </div>
                 </div>
